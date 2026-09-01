@@ -45,6 +45,18 @@ python -m backend.cli "总结工作区里有什么"
 
 Windows 下可双击 `start.bat` 一键启动；Linux/macOS 用 `./start.sh`。
 
+## 测试
+
+| 脚本 | 模式 | 说明 |
+|------|------|------|
+| `test_flow.py` | Mock | 无 Key 也能跑：写文件 / 危险审批 / ask_user / 并行，4 用例 |
+| `test_real.py` | 真实模型 | 接入 OpenAI 兼容网关后用真实 LLM 验证同 4 个用例 |
+
+```bash
+python test_flow.py   # 需服务已启动；Mock 模式下即可全通过
+python test_real.py   # 需 .env 配置真实 Key
+```
+
 ## API
 
 | 接口 | 说明 |
@@ -74,7 +86,8 @@ mini-coding-agent/
 │   └── cli.py        # 阶段一入口（CLI）
 ├── frontend/index.html  # Web UI（单文件）
 ├── workspace/        # Agent 沙箱工作区
-├── test_flow.py      # 全链路自动化测试（4 个用例）
+├── test_flow.py      # 全链路自动化测试（Mock，4 用例）
+├── test_real.py      # 全链路自动化测试（真实模型，4 用例）
 ├── .env.example
 └── requirements.txt
 ```
