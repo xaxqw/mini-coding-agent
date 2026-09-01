@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 环境配置（含 API Key，不入库）
+.env
+
+# Agent 沙箱工作区（由 Agent 产生的文件不入库）
+workspace/*
+!workspace/.gitkeep
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
